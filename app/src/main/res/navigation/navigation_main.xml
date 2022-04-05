@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/introFragment">
+
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="id.ac.ubaya.anmp_uts_160419058.IntroFragment"
+        android:label="Intro Screen"
+        tools:layout="@layout/fragment_intro">
+        <action
+            android:id="@+id/action_intro_to_main"
+            app:destination="@id/mainMenuFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/mainMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="id.ac.ubaya.anmp_uts_160419058.MainMenuFragment"
+        android:label="Main Menu Screen"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_main_to_intro"
+            app:destination="@id/introFragment" />
+    </fragment>
+</navigation>

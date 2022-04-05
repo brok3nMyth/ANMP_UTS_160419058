@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemHome"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/itemSearch"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Search" />
+    <item
+        android:id="@+id/itemFavorites"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="Favorites"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/itemLoan"
+        android:icon="@drawable/ic_baseline_view_list_24"
+        android:title="Loan"
+        app:showAsAction="always" />
+</menu>
