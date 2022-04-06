@@ -31,7 +31,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
         booksLoadErrorLiveData.value = true
         loadingLiveData.value = false
         queue = Volley.newRequestQueue(getApplication())
-        val url= "https://api.npoint.io/3f4650770dbbd7694dee"
+        val url= "https://api.npoint.io/3f4650770dbbd7694dee/book/"
 
         val stringRequest = StringRequest(
             Request.Method.GET,url,
@@ -56,7 +56,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
         loansLoadErrorLiveData.value = true
         loadingLiveData.value = false
         queue = Volley.newRequestQueue(getApplication())
-        val url= "https://api.npoint.io/cb5a60da17413fda90b2"
+        val url= "https://api.npoint.io/cb5a60da17413fda90b2/loan/"
 
         val stringRequest = StringRequest(
             Request.Method.GET,url,
@@ -82,7 +82,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
         newsLoadErrorLiveData.value = true
         loadingLiveData.value = false
         queue = Volley.newRequestQueue(getApplication())
-        val url= "https://api.npoint.io/ee9b06f3a5ca0a25243a"
+        val url= "https://api.npoint.io/ee9b06f3a5ca0a25243a/news/"
 
         val stringRequest = StringRequest(
             Request.Method.GET,url,
@@ -107,7 +107,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
         favoritesLoadErrorLiveData.value = true
         loadingLiveData.value = false
         queue = Volley.newRequestQueue(getApplication())
-        val url= "https://api.npoint.io/f999e8046a47c3e8bf9f"
+        val url= "https://api.npoint.io/f999e8046a47c3e8bf9f/favorites/"
 
         val stringRequest = StringRequest(
             Request.Method.GET,url,

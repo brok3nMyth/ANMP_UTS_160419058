@@ -21,4 +21,9 @@
         android:icon="@drawable/ic_baseline_view_list_24"
         android:title="Loan"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/itemAbout"
+        android:icon="@drawable/ic_baseline_error_outline_24"
+        android:title="About"
+        app:showAsAction="always" />
 </menu>

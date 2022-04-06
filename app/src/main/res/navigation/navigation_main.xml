@@ -3,27 +3,126 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/introFragment">
+    app:startDestination="@id/itemHome">
 
     <fragment
-        android:id="@+id/introFragment"
+        android:id="@+id/itemAbout"
         android:name="id.ac.ubaya.anmp_uts_160419058.IntroFragment"
         android:label="Intro Screen"
         tools:layout="@layout/fragment_intro">
         <action
             android:id="@+id/action_intro_to_main"
-            app:destination="@id/mainMenuFragment"
+            app:destination="@id/itemHome"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@id/mainMenuFragment" />
+            app:popUpTo="@id/itemHome" />
     </fragment>
     <fragment
-        android:id="@+id/mainMenuFragment"
+        android:id="@+id/itemHome"
         android:name="id.ac.ubaya.anmp_uts_160419058.MainMenuFragment"
         android:label="Main Menu Screen"
         tools:layout="@layout/fragment_main_menu" >
         <action
             android:id="@+id/action_main_to_intro"
-            app:destination="@id/introFragment" />
+            app:destination="@id/itemAbout" />
+        <action
+            android:id="@+id/action_main_to_loan"
+            app:destination="@id/itemLoan" />
+        <action
+            android:id="@+id/action_main_to_favorites"
+            app:destination="@id/itemFavorites" />
+        <action
+            android:id="@+id/action_main_to_search"
+            app:destination="@id/itemSearch" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemSearch"
+        android:name="id.ac.ubaya.anmp_uts_160419058.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_to_main"
+            app:destination="@id/itemHome" />
+        <action
+            android:id="@+id/action_search_to_loan"
+            app:destination="@id/itemLoan" />
+        <action
+            android:id="@+id/action_search_to_favorites"
+            app:destination="@id/itemFavorites" />
+        <action
+            android:id="@+id/action_search_to_detail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemLoan"
+        android:name="id.ac.ubaya.anmp_uts_160419058.LoanListFragment"
+        android:label="fragment_loan_list"
+        tools:layout="@layout/fragment_loan_list" >
+        <action
+            android:id="@+id/action_loan_to_favorites"
+            app:destination="@id/itemFavorites" />
+        <action
+            android:id="@+id/action_loan_to_search"
+            app:destination="@id/itemSearch" />
+        <action
+            android:id="@+id/action_loanList_to_loanForm"
+            app:destination="@id/loanFormFragment" />
+        <action
+            android:id="@+id/action_loanList_to_loanEdit"
+            app:destination="@id/loanEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanFormFragment"
+        android:name="id.ac.ubaya.anmp_uts_160419058.LoanFormFragment"
+        android:label="fragment_loan_form"
+        tools:layout="@layout/fragment_loan_form" >
+        <action
+            android:id="@+id/action_loanForm_to_loanList"
+            app:destination="@id/itemLoan" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanEditFragment"
+        android:name="id.ac.ubaya.anmp_uts_160419058.LoanEditFragment"
+        android:label="fragment_loan_edit"
+        tools:layout="@layout/fragment_loan_edit" >
+        <action
+            android:id="@+id/action_loanEdit_to_loanList"
+            app:destination="@id/itemLoan" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="id.ac.ubaya.anmp_uts_160419058.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detail_to_favorites"
+            app:destination="@id/itemFavorites" />
+        <action
+            android:id="@+id/action_detail_to_search"
+            app:destination="@id/itemSearch" />
+        <argument
+            android:name="bookId"
+            app:argType="string" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemFavorites"
+        android:name="id.ac.ubaya.anmp_uts_160419058.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favorites_to_loan"
+            app:destination="@id/itemLoan" />
+        <action
+            android:id="@+id/action_favorites_to_main"
+            app:destination="@id/itemHome" />
+        <action
+            android:id="@+id/action_favorites_to_detail"
+            app:destination="@id/detailFragment" />
     </fragment>
 </navigation>
