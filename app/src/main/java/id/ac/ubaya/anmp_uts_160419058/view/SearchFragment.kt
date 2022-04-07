@@ -21,29 +21,35 @@ class SearchFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_search, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
         viewModel.refresh_books()
-        txtErrorSearch.visibility= View.GONE
+
+        //txtErrorSearch.visibility= View.GONE
         recSearchView.layoutManager = LinearLayoutManager(context)
         recSearchView.adapter = BookListAdapter
 
+        observeViewModel()
+
         refreshLayoutSearch.setOnRefreshListener {
             recSearchView.visibility = View.GONE
-
             progressLoadSearch.visibility = View.VISIBLE
+            txtErrorSearch.visibility= View.GONE
             viewModel.refresh_books()
             refreshLayoutSearch.isRefreshing = false
-            txtErrorSearch.visibility= View.GONE
+
         }
 
-        observeViewModel()
+        //observeViewModel()
 
     }
 
     fun observeViewModel() {
+        txtErrorSearch.visibility= View.GONE
+
         viewModel.booksLiveData.observe(viewLifecycleOwner, Observer {
             BookListAdapter.updateBooksList(it)
         })
@@ -62,4 +68,5 @@ class SearchFragment : Fragment() {
         })
 
     }
+
 }

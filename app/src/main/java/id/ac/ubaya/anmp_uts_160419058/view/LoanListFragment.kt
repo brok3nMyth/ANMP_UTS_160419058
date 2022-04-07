@@ -11,7 +11,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.ubaya.anmp_uts_160419058.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_loan_list.*
-import kotlinx.android.synthetic.main.fragment_loan_list.view.*
 
 
 class LoanListFragment : Fragment() {
@@ -30,7 +29,6 @@ class LoanListFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
         viewModel.refresh_loans()
 
-        txtErrorSearch.visibility= View.GONE
         recLoanView.layoutManager = LinearLayoutManager(context)
         recLoanView.adapter = loanListAdapter
 
@@ -40,9 +38,10 @@ class LoanListFragment : Fragment() {
             recLoanView.visibility = View.GONE
 
             progressLoadSearch.visibility = View.VISIBLE
+            txtErrorLoan.visibility= View.GONE
             viewModel.refresh_loans()
             refreshLayout.isRefreshing = false
-            txtErrorSearch.visibility= View.GONE
+
         }
         btnAddLoan.setOnClickListener {
             val action = LoanListFragmentDirections.actionLoanListToLoanForm()
@@ -57,7 +56,7 @@ class LoanListFragment : Fragment() {
             loanListAdapter.updateLoansList(it)
         })
         viewModel.loansLoadErrorLiveData.observe(viewLifecycleOwner, Observer {
-            txtErrorSearch.visibility = if(it) View.VISIBLE else View.GONE
+            txtErrorLoan.visibility = if(it) View.VISIBLE else View.GONE
 
         })
         viewModel.loadingLiveData.observe(viewLifecycleOwner, Observer {

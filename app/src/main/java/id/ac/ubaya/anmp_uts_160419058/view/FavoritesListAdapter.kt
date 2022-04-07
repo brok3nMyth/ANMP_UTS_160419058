@@ -6,9 +6,12 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.ubaya.anmp_uts_160419058.FavoritesFragmentDirections
 import id.ac.ubaya.anmp_uts_160419058.R
 import id.ac.ubaya.anmp_uts_160419058.SearchFragmentDirections
 import id.ac.ubaya.anmp_uts_160419058.model.Books
+import id.ac.ubaya.anmp_uts_160419058.model.News
+import id.ac.ubaya.anmp_uts_160419058.util.loadImage
 import kotlinx.android.synthetic.main.book_list_item.view.*
 
 class FavoritesListAdapter (val favList:ArrayList<Books>): RecyclerView
@@ -22,17 +25,16 @@ class FavoritesListAdapter (val favList:ArrayList<Books>): RecyclerView
     }
 
     override fun onBindViewHolder(holder: FavViewHolder, position: Int) {
-        val book = favList[position]
+        val fav = favList[position]
         with(holder.view) {
-            txtTitle.text = book.title
-            txtAuthor.text = book.author
-            txtCode.text = book.code
-            txtGenre.text = book.genre
-            val uri = book.image
-            imageBookCard.setImageURI(uri.toUri())
+            txtTitle.text = fav.title
+            txtAuthor.text = fav.author
+            txtCode.text = fav.code
+            txtGenre.text = fav.genre
+            imageBookCard.loadImage(favList[position].image, progressBarBookCardPhoto)
 
             cardBook.setOnClickListener {
-                val action = SearchFragmentDirections.actionSearchToDetail(book.id.toString(),"fav")
+                val action = FavoritesFragmentDirections.actionFavoritesToDetail(fav.id.toString(),"fav")
                 Navigation.findNavController(it).navigate(action)
             }
         }
@@ -40,4 +42,10 @@ class FavoritesListAdapter (val favList:ArrayList<Books>): RecyclerView
     }
 
     override fun getItemCount() = favList.size
+
+    fun updateFavoritesList(newFavList: ArrayList<Books>){
+        favList.clear()
+        favList.addAll(newFavList)
+        notifyDataSetChanged()
+    }
 }

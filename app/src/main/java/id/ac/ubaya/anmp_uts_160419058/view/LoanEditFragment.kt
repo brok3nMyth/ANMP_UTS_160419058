@@ -1,6 +1,7 @@
 package id.ac.ubaya.anmp_uts_160419058
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +29,7 @@ class LoanEditFragment : Fragment() {
             viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
             val id = LoanEditFragmentArgs.fromBundle(requireArguments()).id
             viewModel.fetch_loan(id)
-            observeViewModel()
+            //observeViewModel()
         }
         observeViewModel()
 
@@ -39,9 +40,17 @@ class LoanEditFragment : Fragment() {
     }
 
     fun observeViewModel() {
-        editTextCode3.setText(viewModel.loansLiveData.value?.code)
-        txtTitle4.text = viewModel.loansLiveData.value?.title
-        txtStatus2.text = viewModel.loansLiveData.value?.status
+        viewModel.loansLiveData.observe(viewLifecycleOwner){
+            val loan = viewModel.loansLiveData.value
+            loan?.let{
+                editTextCode3.setText(loan.code)
+                txtTitle4.text = loan.title
+                txtStatus2.text = loan.status
+            }
+        }
+//        val code = viewModel.loansLiveData.value?.code
+//        Log.d("showcode", code.toString())
+
 
     }
 }

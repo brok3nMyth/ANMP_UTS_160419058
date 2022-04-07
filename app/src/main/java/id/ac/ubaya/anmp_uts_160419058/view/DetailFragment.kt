@@ -26,6 +26,7 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        observeViewModel()
         if(arguments != null) {
             viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
             val id = DetailFragmentArgs.fromBundle(requireArguments()).bookId
@@ -35,16 +36,41 @@ class DetailFragment : Fragment() {
             }else{
                 viewModel.fetch_book(id)
             }
-
+            //observeViewModel()
         }
-        observeViewModel()
+//        observeViewModel()
     }
     fun observeViewModel() {
-        txtTitle2.text = viewModel.booksLiveData.value?.title
-        txtAuthor2.text= viewModel.booksLiveData.value?.author
-        txtCode2.text = viewModel.booksLiveData.value?.code
-        txtGenre2.text = viewModel.booksLiveData.value?.genre
-        imageBookDetail.loadImage(viewModel.booksLiveData.value?.image, progressBarBookDetailPhoto)
+        val type = DetailFragmentArgs.fromBundle(requireArguments()).type
+        if (type == "fav"){
+            viewModel.favoritesLiveData.observe(viewLifecycleOwner){
+                val fav = viewModel.favoritesLiveData.value
+                fav?.let{
+                    txtTitle2.text = fav.title
+                    txtAuthor2.text= fav.author
+                    txtCode2.text = fav.code
+                    txtGenre2.text = fav.genre
+                    imageBookDetail.loadImage(fav.image, progressBarBookDetailPhoto)
+                }
+            }
+        }else{
+            viewModel.booksLiveData.observe(viewLifecycleOwner){
+                val book = viewModel.booksLiveData.value
+                book?.let{
+                    txtTitle2.text = book.title
+                    txtAuthor2.text= book.author
+                    txtCode2.text = book.code
+                    txtGenre2.text = book.genre
+                    imageBookDetail.loadImage(book.image, progressBarBookDetailPhoto)
+                }
+            }
+        }
+
+//        txtTitle2.text = viewModel.booksLiveData.value?.title
+//        txtAuthor2.text= viewModel.booksLiveData.value?.author
+//        txtCode2.text = viewModel.booksLiveData.value?.code
+//        txtGenre2.text = viewModel.booksLiveData.value?.genre
+//        imageBookDetail.loadImage(viewModel.booksLiveData.value?.image, progressBarBookDetailPhoto)
 //        val uri = viewModel.booksLiveData.value!!.image
 //        imageBookDetail.setImageURI(uri.toUri())
 

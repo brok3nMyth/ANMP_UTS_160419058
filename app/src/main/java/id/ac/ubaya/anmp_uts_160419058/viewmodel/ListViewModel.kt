@@ -28,7 +28,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
     private var queue: RequestQueue? = null
 
     fun refresh_books() {
-        booksLoadErrorLiveData.value = true
+        booksLoadErrorLiveData.value = false
         loadingLiveData.value = false
         queue = Volley.newRequestQueue(getApplication())
         val url= "https://api.npoint.io/3f4650770dbbd7694dee/book/"
@@ -53,7 +53,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
         queue?.add(stringRequest)
     }
     fun refresh_loans(){
-        loansLoadErrorLiveData.value = true
+        loansLoadErrorLiveData.value = false
         loadingLiveData.value = false
         queue = Volley.newRequestQueue(getApplication())
         val url= "https://api.npoint.io/cb5a60da17413fda90b2/loan/"
@@ -79,7 +79,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
     }
 
     fun refresh_news(){
-        newsLoadErrorLiveData.value = true
+        newsLoadErrorLiveData.value = false
         loadingLiveData.value = false
         queue = Volley.newRequestQueue(getApplication())
         val url= "https://api.npoint.io/ee9b06f3a5ca0a25243a/news/"
@@ -104,7 +104,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
         queue?.add(stringRequest)
     }
     fun refresh_fav(){
-        favoritesLoadErrorLiveData.value = true
+        favoritesLoadErrorLiveData.value = false
         loadingLiveData.value = false
         queue = Volley.newRequestQueue(getApplication())
         val url= "https://api.npoint.io/f999e8046a47c3e8bf9f/favorites/"
@@ -120,7 +120,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
             },
             {
                 loadingLiveData.value = false
-                booksLoadErrorLiveData.value = true
+                favoritesLoadErrorLiveData.value = true
                 Log.d("errorvolley",it.toString())
             }
         ).apply {
