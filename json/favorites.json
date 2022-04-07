@@ -1,0 +1,36 @@
+{
+  "favorites": [
+    {
+      "id":"0",
+      "title": "Peaky Blinders",
+      "author": "Carl Shinn",
+      "code": "C2014001",
+      "genre": "action",
+      "image": "https://images.tokopedia.net/img/cache/700/VqbcmM/2020/9/22/074c40d7-c80a-4315-9fae-900453f05902.jpg"
+    },
+    {
+      "id":"1",
+      "title": "All the Bright Places",
+      "author": "Jennifer Niven",
+      "code": "C2020001",
+      "genre": "romance",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1404331702l/18460392.jpg"
+    },
+    {
+      "id":"2",
+      "title": "Death on The Nile",
+      "author": "Agatha Christie",
+      "code": "C2018001",
+      "genre": "mystery",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71LsDB3cSnL.jpg"
+    }
+  ]
+}
+
+// Access this bin via the API at:
+
+// https://api.npoint.io/f999e8046a47c3e8bf9f
+
+// You can even access nested data directly, like this:
+
+// https://api.npoint.io/f999e8046a47c3e8bf9f/favorites/0

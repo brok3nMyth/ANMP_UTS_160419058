@@ -1,0 +1,24 @@
+{
+  "loan": [
+    {
+      "id":"0",
+      "code": "C2014001",
+      "title": "Peaky Blinders",
+      "status": "Loaned",
+    },
+    {
+      "id":"1",
+      "code": "C2018001",
+      "title": "Death on The Nile",
+      "status": "Waiting for approval"
+    }
+  ]
+}
+
+// Access this bin via the API at:
+
+// https://api.npoint.io/cb5a60da17413fda90b2
+
+// You can even access nested data directly, like this:
+
+// https://api.npoint.io/cb5a60da17413fda90b2/loan/0

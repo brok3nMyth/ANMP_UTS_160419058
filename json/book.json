@@ -1,0 +1,84 @@
+{
+  "book": [
+    {
+      "id":"0",
+      "title": "Life of Pi",
+      "author": "Yann Martel",
+      "code": "C2001001",
+      "genre": "survival",
+      "image": "https://worldofbooksblog.files.wordpress.com/2013/01/life-of-pi-book-cover1.jpg"
+    },
+    {
+      "id":"1",
+      "title": "Peaky Blinders",
+      "author": "Carl Shinn",
+      "code": "C2014001",
+      "genre": "action",
+      "image": "https://images.tokopedia.net/img/cache/700/VqbcmM/2020/9/22/074c40d7-c80a-4315-9fae-900453f05902.jpg"
+    },
+    {
+      "id":"2",
+      "title": "Murder on the Orient Express",
+      "author": "Agatha Christie",
+      "code": "C2007001",
+      "genre": "mystery",
+      "image": "https://ebooks.gramedia.com/ebook-covers/40338/big_covers/ID_GPU2017MTH09PDOEMOTOEF_B.jpg"
+    },
+    {
+      "id":"3",
+      "title": "Death on The Nile",
+      "author": "Agatha Christie",
+      "code": "C2018001",
+      "genre": "mystery",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71LsDB3cSnL.jpg"
+    },
+    {
+      "id":"4",
+      "title": "Evil Under the Sun",
+      "author": "Agatha Christie",
+      "code": "C20190001",
+      "genre": "mystery",
+      "image": "https://ebooks.gramedia.com/ebook-covers/46287/image_highres/ID_PTP2019MTH02PTP.jpg"
+    },
+    {
+      "id":"5",
+      "title": "The Wolf of Wall Street",
+      "author": "Jordan Belfort",
+      "code": "C2011001",
+      "genre": "business",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/91arek9tBiL.jpg"
+    },
+    {
+      "id":"6",
+      "title": "Way of the Wolf",
+      "author": "Jordan Belfort",
+      "code": "C2017001",
+      "genre": "business",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81DDOE-EZVL.jpg"
+    },
+    {
+      "id":"7",
+      "title": "The Fault in Our Stars",
+      "author": "John Green",
+      "code": "C2014002",
+      "genre": "romance",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/817tHNcyAgL.jpg"
+    },
+    {
+      "id":"8",
+      "title": "All the Bright Places",
+      "author": "Jennifer Niven",
+      "code": "C2020001",
+      "genre": "romance",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1404331702l/18460392.jpg"
+    }
+  ]
+}
+
+// Access this bin via the API at:
+
+// https://api.npoint.io/3f4650770dbbd7694dee
+
+// You can even access nested data directly, like this:
+
+// https://api.npoint.io/3f4650770dbbd7694dee/book/0

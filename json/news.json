@@ -1,0 +1,28 @@
+{
+  "news": [
+    {
+      "title": "ULIS",
+      "content": "ULIS is now available for all student",
+      "date": "07/04/2022"
+    },
+    {
+      "title": "Full Offline",
+      "content": "Semua KBM akan dijalankan secara offline mulai perkuliahan week 8",
+      "date": "11/04/2022"
+    },
+    {
+      "title": "Wisuda",
+      "content": "Kegiatan wisuda akan diadakan di Ballroom Westin pada tanggal 23 April 2022",
+      "date": "20/03/202"
+    }
+  ]
+}
+
+// Access this bin via the API at:
+
+// https://api.npoint.io/ee9b06f3a5ca0a25243a
+
+// You can even access nested data directly, like this:
+
+// https://api.npoint.io/ee9b06f3a5ca0a25243a/news/0
+
