@@ -26,7 +26,7 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
         viewModel.refresh_books()
-
+        txtErrorSearch.visibility= View.GONE
         recSearchView.layoutManager = LinearLayoutManager(context)
         recSearchView.adapter = BookListAdapter
 

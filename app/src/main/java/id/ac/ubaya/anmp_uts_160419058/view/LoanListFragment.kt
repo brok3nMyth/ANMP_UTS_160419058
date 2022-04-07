@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.ubaya.anmp_uts_160419058.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_loan_list.*
+import kotlinx.android.synthetic.main.fragment_loan_list.view.*
 
 
 class LoanListFragment : Fragment() {
@@ -28,8 +30,11 @@ class LoanListFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
         viewModel.refresh_loans()
 
+        txtErrorSearch.visibility= View.GONE
         recLoanView.layoutManager = LinearLayoutManager(context)
         recLoanView.adapter = loanListAdapter
+
+        observeViewModel()
 
         refreshLayout.setOnRefreshListener {
             recLoanView.visibility = View.GONE
@@ -39,8 +44,11 @@ class LoanListFragment : Fragment() {
             refreshLayout.isRefreshing = false
             txtErrorSearch.visibility= View.GONE
         }
+        btnAddLoan.setOnClickListener {
+            val action = LoanListFragmentDirections.actionLoanListToLoanForm()
+            Navigation.findNavController(it).navigate(action)
+        }
 
-        observeViewModel()
 
     }
 

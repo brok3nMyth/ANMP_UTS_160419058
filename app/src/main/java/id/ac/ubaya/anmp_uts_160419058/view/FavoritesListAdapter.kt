@@ -6,12 +6,10 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import id.ac.ubaya.anmp_uts_160419058.BookListAdapter
 import id.ac.ubaya.anmp_uts_160419058.R
 import id.ac.ubaya.anmp_uts_160419058.SearchFragmentDirections
 import id.ac.ubaya.anmp_uts_160419058.model.Books
 import kotlinx.android.synthetic.main.book_list_item.view.*
-import kotlinx.android.synthetic.main.fragment_detail.*
 
 class FavoritesListAdapter (val favList:ArrayList<Books>): RecyclerView
 .Adapter<FavoritesListAdapter.FavViewHolder>() {
@@ -31,7 +29,7 @@ class FavoritesListAdapter (val favList:ArrayList<Books>): RecyclerView
             txtCode.text = book.code
             txtGenre.text = book.genre
             val uri = book.image
-            imageView.setImageURI(uri.toUri())
+            imageBookCard.setImageURI(uri.toUri())
 
             cardBook.setOnClickListener {
                 val action = SearchFragmentDirections.actionSearchToDetail(book.id.toString(),"fav")

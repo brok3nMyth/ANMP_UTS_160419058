@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.lifecycle.ViewModelProvider
+import id.ac.ubaya.anmp_uts_160419058.util.loadImage
 import id.ac.ubaya.anmp_uts_160419058.viewmodel.DetailViewModel
+import kotlinx.android.synthetic.main.book_list_item.view.*
 import kotlinx.android.synthetic.main.fragment_detail.*
 
 class DetailFragment : Fragment() {
@@ -38,13 +40,13 @@ class DetailFragment : Fragment() {
         observeViewModel()
     }
     fun observeViewModel() {
-        txtTitle2.setText(viewModel.booksLiveData.value?.title)
-        txtAuthor2.setText(viewModel.booksLiveData.value?.author)
-        txtCode2.setText(viewModel.booksLiveData.value?.code)
-        txtGenre2.setText(viewModel.booksLiveData.value?.genre)
-        val uri = viewModel.booksLiveData.value!!.image
-        imageView2.setImageURI(uri.toUri())
-        /**buat volley untuk image**/
+        txtTitle2.text = viewModel.booksLiveData.value?.title
+        txtAuthor2.text= viewModel.booksLiveData.value?.author
+        txtCode2.text = viewModel.booksLiveData.value?.code
+        txtGenre2.text = viewModel.booksLiveData.value?.genre
+        imageBookDetail.loadImage(viewModel.booksLiveData.value?.image, progressBarBookDetailPhoto)
+//        val uri = viewModel.booksLiveData.value!!.image
+//        imageBookDetail.setImageURI(uri.toUri())
 
 
     }

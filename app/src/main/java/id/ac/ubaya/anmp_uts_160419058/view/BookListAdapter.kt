@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ubaya.anmp_uts_160419058.model.Books
+import id.ac.ubaya.anmp_uts_160419058.util.loadImage
 import kotlinx.android.synthetic.main.book_list_item.view.*
 
 class BookListAdapter(val bookList:ArrayList<Books>): RecyclerView
@@ -25,6 +26,7 @@ class BookListAdapter(val bookList:ArrayList<Books>): RecyclerView
             txtAuthor.text = book.author
             txtCode.text = book.code
             txtGenre.text = book.genre
+            imageBookCard.loadImage(bookList[position].image, progressBarBookCardPhoto)
 
             cardBook.setOnClickListener {
                 val action = SearchFragmentDirections.actionSearchToDetail(book.id.toString(),"search")

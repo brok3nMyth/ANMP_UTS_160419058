@@ -12,8 +12,6 @@ import id.ac.ubaya.anmp_uts_160419058.view.FavoritesListAdapter
 import id.ac.ubaya.anmp_uts_160419058.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_favorites.*
 import kotlinx.android.synthetic.main.fragment_main_menu.*
-import kotlinx.android.synthetic.main.fragment_search.*
-import kotlinx.android.synthetic.main.fragment_search.recSearchView
 
 
 class FavoritesFragment : Fragment() {
@@ -31,7 +29,7 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
         viewModel.refresh_fav()
-
+        txtErrorFav.visibility= View.GONE
         recFavView.layoutManager = LinearLayoutManager(context)
         recFavView.adapter = BookListAdapter
 
@@ -49,10 +47,10 @@ class FavoritesFragment : Fragment() {
     }
 
     fun observeViewModel() {
-        viewModel.booksLiveData.observe(viewLifecycleOwner, Observer {
+        viewModel.favoritesLiveData.observe(viewLifecycleOwner, Observer {
             BookListAdapter.updateBooksList(it)
         })
-        viewModel.booksLoadErrorLiveData.observe(viewLifecycleOwner, Observer {
+        viewModel.favoritesLoadErrorLiveData.observe(viewLifecycleOwner, Observer {
             txtErrorFav.visibility = if(it) View.VISIBLE else View.GONE
 
         })

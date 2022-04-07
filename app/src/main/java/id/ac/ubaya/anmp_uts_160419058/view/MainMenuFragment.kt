@@ -23,12 +23,13 @@ class MainMenuFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main_menu, container, false)
+        txtErrorMain.visibility= View.GONE
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
         viewModel.refresh_news()
-
+        txtErrorMain.visibility= View.GONE
         recNewsView.layoutManager = LinearLayoutManager(context)
         recNewsView.adapter = newsListAdapter
 

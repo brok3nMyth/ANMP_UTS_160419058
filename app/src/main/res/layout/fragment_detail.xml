@@ -8,12 +8,13 @@
     tools:context=".DetailFragment" >
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="320dp"
-        android:layout_height="293dp"
-        android:layout_marginStart="40dp"
+        android:id="@+id/imageBookDetail"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
         android:layout_marginTop="30dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.036"
@@ -51,7 +52,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageBookDetail" />
 
     <TextView
         android:id="@+id/textCode2"
@@ -96,4 +97,14 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textGenre2"
         app:layout_constraintTop_toBottomOf="@+id/txtAuthor2" />
+
+    <ProgressBar
+        android:id="@+id/progressBarBookDetailPhoto"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageBookDetail"
+        app:layout_constraintEnd_toEndOf="@+id/imageBookDetail"
+        app:layout_constraintStart_toStartOf="@+id/imageBookDetail"
+        app:layout_constraintTop_toTopOf="@+id/imageBookDetail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

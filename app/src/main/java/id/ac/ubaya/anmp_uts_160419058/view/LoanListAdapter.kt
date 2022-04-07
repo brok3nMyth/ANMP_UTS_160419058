@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import id.ac.ubaya.anmp_uts_160419058.model.Books
 import id.ac.ubaya.anmp_uts_160419058.model.Loans
 import kotlinx.android.synthetic.main.fragment_detail.view.*
+import kotlinx.android.synthetic.main.fragment_loan_list.view.*
 import kotlinx.android.synthetic.main.loan_list_item.view.*
 
 class LoanListAdapter (val loanList:ArrayList<Loans>): RecyclerView
